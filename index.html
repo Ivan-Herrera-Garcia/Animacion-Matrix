@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Matrix Animation</title>
+        <link href="public/icono.png" type="image/x-icon" rel="icon">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="sweetalert2.min.js"></script>
+        <link rel="stylesheet" href="sweetalert2.min.css">
+      </head>
+    <body>            
+                <div id="boton_azul" class="btn_azul" onclick="autoDestruccion()"></div>
+                <div id="boton_rojo" class="btn_rojo" onclick="iniciarAnimacion()"></div>
+                <img id="imagen" src="./public/pastillas.jpg" aria-label="Imagen de Morfeo Matrix" alt="Elige">
+                <div style="display: flex;" class="matrix" id = "matrix-container"></div>
+        <script>
+
+            function autoDestruccion() {
+                Swal.fire({
+                    title: 'Fatal Error!',
+                    text: 'Bad choice',
+                    icon: 'question',
+                    confirmButtonText: 'Try again',
+                  })
+            }
+
+            function crearElementos() {
+                const container = document.getElementById('matrix-container');
+                for (let i = 1; i < 175; i++) {
+                var div = document.createElement('div');
+                div.className = 'matrix'
+                div.id = 'matrix_' + i;
+                container.appendChild(div);
+                }
+            }
+            
+            function animarTexto() {
+                var cadena = ".abcdefghijklmnopqrstuvwxyz1234567890!#$%&/()=?¡¨*][_:;,.-{}+`^*|@#~€¬<>°;]";
+                for (var i = 1; i < 175; i++) {
+                var cadenaMatrix = "";
+                for (var j = 0; j < 10; j++) {
+                    if (j == 9) {
+                    cadenaMatrix += '<div style="color: white">' + cadena[Math.floor(Math.random() * cadena.length)] + '</div>';   
+                    } else {
+                    cadenaMatrix += `<div style="opacity: ${j * 0.22};">` + cadena[Math.floor(Math.random() * cadena.length)] + '</div>';   
+                    }
+                }
+                var letterElement = document.getElementById('matrix_' + i);
+                letterElement.innerHTML = cadenaMatrix;
+                const random = Math.floor(Math.random() * 3);
+                if (random == 0) {
+                    letterElement.classList.add('Ani_lento');     
+                } else if (random == 1) {
+                    letterElement.classList.add('Ani_mediano');     
+                } else {        
+                    letterElement.classList.add('Ani_rapido');     
+                    }
+                }
+            }
+            
+            function iniciarAnimacion() {
+                const boton_azul = document.getElementById('boton_azul');
+                boton_azul.style.display = 'none';
+                const boton_rojo = document.getElementById('boton_rojo');
+                boton_rojo.style.display = 'none';
+                const imagen = document.getElementById('imagen');
+                imagen.style.display = 'none';
+                crearElementos(); // Crear los elementos dinámicamente
+                animarTexto(); // Ejecutar inmediatamente
+                setInterval(animarTexto, 1500); // Repetir cada 500ms
+            }
+            
+            document.addEventListener('DOMContentLoaded', crearElementos); // Crear los elementos al cargar la página
+            
+        </script>
+    </body>
+</html>
