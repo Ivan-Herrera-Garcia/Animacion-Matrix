@@ -14,7 +14,8 @@
     <body>            
                 <div id="boton_azul" class="btn_azul" onclick="autoDestruccion()"></div>
                 <div id="boton_rojo" class="btn_rojo" onclick="iniciarAnimacion()"></div>
-                <img id="imagen" src="./public/pastillas.jpg" aria-label="Imagen de Morfeo Matrix" alt="Elige">
+                <div id="texto" class="contenedor_texto">Choose a pill</div>
+                <img id="imagen" src="./public/pastillas.jpg" class="imagen" aria-label="Imagen de Morfeo Matrix" alt="Elige">
                 <div style="display: flex;" class="matrix" id = "matrix-container"></div>
         <script>
 
@@ -68,6 +69,8 @@
                 boton_rojo.style.display = 'none';
                 const imagen = document.getElementById('imagen');
                 imagen.style.display = 'none';
+                const texto = document.getElementById('texto');
+                texto.style.display = 'none';
                 crearElementos(); // Crear los elementos dinámicamente
                 animarTexto(); // Ejecutar inmediatamente
                 setInterval(animarTexto, 1500); // Repetir cada 500ms

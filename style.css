@@ -18,7 +18,18 @@ body {
   top: 30%;
   left: 57%;
   transform: translate(-50%, -50%);
-  z-index: 9999; /* Asegura que esté por encima de todos los componentes */
+  z-index: 9999;
+  /* border: white 2px solid; */
+  @media (max-width: 768px) {
+    height: 300px;
+    width: 300px;
+    transform: translate(-56%, -40%);
+    @media (max-width: 320px){
+      height: 200px;
+      width: 200px;
+      transform: translate(-58%, 0%);
+    }
+  }
 }
 
 .btn_azul {
@@ -30,6 +41,9 @@ body {
   left: 43%;
   transform: translate(-50%, -50%);
   z-index: 9999; /* Asegura que esté por encima de todos los componentes */
+  @media (max-width: 768px){
+    display: hidden;
+  }
 }
 
 .Ani_lento {
@@ -77,5 +91,42 @@ body {
   }
   to {
     top: 100vh; 
+  }
+}
+
+.contenedor_texto {
+  position: absolute;
+  font-weight: 900;
+  font-size: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  @media (max-width: 375px){
+    top: 70%;
+    left: 55%;
+
+    @media (max-width: 320px){
+      top: 80%;
+      left: 55%;
+    }
+  }
+  
+ 
+}
+
+.imagen {
+  overflow: hidden;
+  @media (max-width: 768px) {
+    scale: 0.5;
+    margin: 0;
+    text-align: center;
+    transform: translate(-25%, 20%);
+    @media (max-width: 320px){
+      scale: 0.5;
+      margin: 0;
+      text-align: center;
+      transform: translate(-40%, 20%);
+    }
   }
 }
