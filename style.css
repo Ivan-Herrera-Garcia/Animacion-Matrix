@@ -103,11 +103,11 @@ body {
   transform: translate(-50%, -50%);
   z-index: 9999;
   @media (max-width: 375px){
-    top: 70%;
+    top: 80%;
     left: 55%;
 
     @media (max-width: 320px){
-      top: 80%;
+      top: 90%;
       left: 55%;
     }
   }
